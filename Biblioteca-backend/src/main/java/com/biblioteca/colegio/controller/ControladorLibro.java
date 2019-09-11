@@ -40,5 +40,25 @@ public class ControladorLibro {
 		return repositorioLibroDao.getAllLibroByAutor(autor);
 	}
 	
+	@GetMapping(path="/verLibrosPorGenero")
+	public Iterable<Libro> verLibrosPorGenero(@RequestParam String genero) {
+		return repositorioLibroDao.getAllLibroByGenero(genero);
+	}
+	
+	@GetMapping(path="/verLibrosPorEditorial")
+	public Iterable<Libro> verLibrosPorEditorial(@RequestParam String editorial) {
+		return repositorioLibroDao.getAllLibroByEditorial(editorial);
+	}
+	
+	@PostMapping(path="/eliminarLibroPorTitulo")
+	public String eliminarLibroPorTitulo(@RequestParam String titulo) {
+		Libro libro = repositorioLibroDao.getLibroByTitulo(titulo);
+		repositorioLibroDao.delete(libro);
+		return "Libro <"+libro.getTitulo()+"> eliminado satisfactoriamente";
+	}
+	
+	
+	
+	
 	
 }

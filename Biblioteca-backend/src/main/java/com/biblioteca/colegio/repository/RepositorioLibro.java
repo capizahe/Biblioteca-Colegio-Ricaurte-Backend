@@ -9,4 +9,8 @@ import com.biblioteca.colegio.model.Libro;
 public interface RepositorioLibro extends CrudRepository<Libro,Integer>{
 
 	public Iterable<Libro> getAllLibroByAutor(String autor);
+	public Libro getLibroByTitulo(String titulo);
+	public Iterable<Libro> getAllLibroByGenero(String genero);
+	public Iterable<Libro> getAllLibroByEditorial(String editorial);
+
 }
