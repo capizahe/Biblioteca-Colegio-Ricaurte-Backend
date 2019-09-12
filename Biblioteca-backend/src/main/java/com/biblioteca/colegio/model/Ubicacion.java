@@ -20,15 +20,24 @@ public class Ubicacion {
 	@JoinColumn(name = "libro")
 	private Libro libro;
 	
+	private String seccion;
 	private Integer numero_estante;
 	
+	public String getSeccion() {
+		return seccion;
+	}
+
+	public void setSeccion(String seccion) {
+		this.seccion = seccion;
+	}
+
 	public Ubicacion() {
 		super();
 	}
 	
-	public Ubicacion(Integer id, Libro libro, Integer numero_estante) {
+	public Ubicacion(Libro libro, String seccion,Integer numero_estante) {
 		super();
-		this.id = id;
+		this.seccion= seccion;
 		this.libro = libro;
 		this.numero_estante = numero_estante;
 	}

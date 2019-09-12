@@ -1,19 +1,14 @@
 package com.biblioteca.colegio.controller;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.biblioteca.colegio.model.Libro;
 import com.biblioteca.colegio.repository.RepositorioLibro;
 
@@ -26,6 +21,7 @@ public class ControladorLibro {
 	
 	@GetMapping(path="/verLibros")
 	public Iterable<Libro> verLibros(){
+		
 		return repositorioLibroDao.findAll();
 	}
 	@PostMapping(path="/agregarLibro")
@@ -54,7 +50,8 @@ public class ControladorLibro {
 	public String eliminarLibroPorTitulo(@RequestParam String titulo) {
 		Libro libro = repositorioLibroDao.getLibroByTitulo(titulo);
 		repositorioLibroDao.delete(libro);
-		return "Libro <"+libro.getTitulo()+"> eliminado satisfactoriamente";
+		
+		return "Libro/s <"+titulo+"> eliminado/s satisfactoriamente";
 	}
 	
 	
